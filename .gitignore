@@ -147,7 +147,7 @@ instance/
 .scrapy
 
 # Sphinx documentation
-docs/_build/
+#docs/_build/
 
 # PyBuilder
 target/
@@ -274,3 +274,4 @@ tests/chats/*
 flake-report
 
 notebooks
+reports

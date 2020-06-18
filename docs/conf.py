@@ -12,7 +12,13 @@
 #
 # import os
 # import sys
-# sys.path.insert(0, os.path.abspath('.'))
+# # sys.path.insert(0, os.path.abspath('.'))
+# sys.path.insert(0, os.path.abspath('_ext'))
+
+from sphinx.ext.autosummary import Autosummary
+from sphinx.ext.autosummary import get_documenter
+from docutils.parsers.rst import directives
+from sphinx.util.inspect import safe_getattr
 
 
 # -- Project information -----------------------------------------------------
@@ -40,7 +46,10 @@ extensions = [
     'sphinx_rtd_theme',
     'sphinx_copybutton',
     'sphinx.ext.autosectionlabel',
-    'sphinx_git'
+    'sphinx_git',
+    'autodocsumm',
+    'sphinx.ext.mathjax'
+    # 'sphinx_gallery.gen_gallery'
 ]
 
 # The name of the entry point, without the ".rst" extension.
@@ -71,12 +80,53 @@ html_theme = 'sphinx_rtd_theme'
 html_static_path = ['_static']
 
 # -- Copybutton ---------------------------------------------------------------
-copybutton_prompt_text = ">>>"
+copybutton_prompt_text = ">>> "
 
+
+# -- autoautosummary ----------------------------------------------------------
+class AutoAutoSummary(Autosummary):
+    option_spec = {
+        'methods': directives.unchanged,
+        'attributes': directives.unchanged
+    }
+
+    required_arguments = 1
+
+    @staticmethod
+    def get_members(obj, typ, include_public=None):
+        if not include_public:
+            include_public = []
+        items = []
+        for name in dir(obj):
+            try:
+                documenter = get_documenter(safe_getattr(obj, name), obj)
+            except AttributeError:
+                continue
+            if documenter.objtype == typ:
+                items.append(name)
+        public = [x for x in items if x in include_public or not x.startswith('_')]
+        return public, items
+
+    def run(self):
+        clazz = str(self.arguments[0])
+        try:
+            (module_name, class_name) = clazz.rsplit('.', 1)
+            m = __import__(module_name, globals(), locals(), [class_name])
+            c = getattr(m, class_name)
+            if 'methods' in self.options:
+                _, methods = self.get_members(c, 'method', ['__init__'])
+
+                self.content = ["~%s.%s" % (clazz, method) for method in methods if not method.startswith('_')]
+            if 'attributes' in self.options:
+                _, attribs = self.get_members(c, 'attribute')
+                self.content = ["~%s.%s" % (clazz, attrib) for attrib in attribs if not attrib.startswith('_')]
+        finally:
+            return super(AutoAutoSummary, self).run()
 
 # -- Theme --------------------------------------------------------------------
 def setup(app):
     app.add_stylesheet('css/custom.css')
+    app.add_directive('autoautosummary', AutoAutoSummary)
 
 
 html_title = "WhatsApp Analysis Toolkit"
@@ -89,9 +139,9 @@ html_copy_source = True
 # github_url = 'https://github.com/lucasrodes/whatstk'
 
 html_theme_options = {
-    'logo_only': True,
+    'logo_only': False,
     'display_version': True,
-    'navigation_depth': 10,
+    'navigation_depth': 3,
     'display_version': True,
     'collapse_navigation': False,
     'sticky_navigation': False
@@ -101,3 +151,25 @@ html_theme_options = {
 html4_writer = True
 napoleon_use_rtype = False
 autosummary_generate = True
+
+
+# Autodocsum
+autodoc_default_options = {
+    'autosummary': True,
+}
+
+# Sphinx gallery
+# from plotly.io._sg_scraper import plotly_sg_scraper
+# image_scrapers = ('matplotlib', plotly_sg_scraper,)
+
+# sphinx_gallery_conf = {
+#      'examples_dirs': '_static/examples_py',   # path to your example scripts
+#      'gallery_dirs': 'source/gallery',  # path to where to save gallery generated output
+#      'reference_url': {'plotly': None,
+#       },
+#      'image_scrapers': image_scrapers,
+# }
+
+# Github edit
+edit_on_github_project = 'lucasrodes/whatstk'
+edit_on_github_branch = 'master'
