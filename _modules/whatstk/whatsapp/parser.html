@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                v0.3.0
+                v0.3.1
               </div>
             
           
@@ -223,16 +223,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#unreleased-2020-06-26">Unreleased (2020-06-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#unreleased-2020-07-26">Unreleased (2020-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id1">0.2.0 (2020-04-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id2">0.1.11 (2019-06-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id3">0.1.10 (2019-06-18)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id4">0.1.9 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id5">0.1.8 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id6">0.1.7 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id7">0.1.6 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id8">0.1.1 (2019-06-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id9">0.1.0 (2019-06-15)</a></li>
 </ul>
 </li>
 </ul>
@@ -385,7 +378,8 @@
         <span class="n">hformat</span> <span class="o">=</span> <span class="n">extract_header_from_text</span><span class="p">(</span><span class="n">text</span><span class="p">)</span>
         <span class="k">if</span> <span class="ow">not</span> <span class="n">hformat</span><span class="p">:</span>
             <span class="k">raise</span> <span class="ne">RuntimeError</span><span class="p">(</span><span class="s2">&quot;Header automatic extraction failed. Please specify the format manually by setting&quot;</span>
-                               <span class="s2">&quot; input argument `hformat`.&quot;</span><span class="p">)</span>
+                               <span class="s2">&quot; input argument `hformat`. Report this issue so that automatic header detection support&quot;</span>
+                               <span class="s2">&quot; for your header format is added: https://github.com/lucasrodes/whatstk/issues.&quot;</span><span class="p">)</span>
     <span class="k">elif</span> <span class="ow">not</span> <span class="p">(</span><span class="n">hformat</span> <span class="ow">or</span> <span class="n">auto_header</span><span class="p">):</span>
         <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s2">&quot;If auto_header is False, hformat can&#39;t be None.&quot;</span><span class="p">)</span>
 

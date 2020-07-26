@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                v0.3.0
+                v0.3.1
               </div>
             
           
@@ -225,16 +225,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased-2020-06-26">Unreleased (2020-06-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased-2020-07-26">Unreleased (2020-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.2.0 (2020-04-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.1.11 (2019-06-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.1.10 (2019-06-18)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">0.1.9 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.1.8 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id6">0.1.7 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.1.6 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.1.1 (2019-06-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.1.0 (2019-06-15)</a></li>
 </ul>
 </li>
 </ul>
@@ -322,7 +315,7 @@
 </table>
 <dl class="py function">
 <dt id="whatstk.analysis.get_interventions_count">
-<code class="descclassname">whatstk.analysis.</code><code class="descname">get_interventions_count</code><span class="sig-paren">(</span><em><span class="n">df</span><span class="o">=</span><span class="default_value">None</span></em>, <em><span class="n">chat</span><span class="o">=</span><span class="default_value">None</span></em>, <em><span class="n">date_mode</span><span class="o">=</span><span class="default_value">'date'</span></em>, <em><span class="n">msg_length</span><span class="o">=</span><span class="default_value">False</span></em>, <em><span class="n">cummulative</span><span class="o">=</span><span class="default_value">False</span></em>, <em><span class="n">all_users</span><span class="o">=</span><span class="default_value">False</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/whatstk/analysis/interventions.html#get_interventions_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whatstk.analysis.get_interventions_count" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">whatstk.analysis.</code><code class="descname">get_interventions_count</code><span class="sig-paren">(</span><em><span class="n">df</span><span class="o">=</span><span class="default_value">None</span></em>, <em><span class="n">chat</span><span class="o">=</span><span class="default_value">None</span></em>, <em><span class="n">date_mode</span><span class="o">=</span><span class="default_value">'date'</span></em>, <em><span class="n">msg_length</span><span class="o">=</span><span class="default_value">False</span></em>, <em><span class="n">cumulative</span><span class="o">=</span><span class="default_value">False</span></em>, <em><span class="n">all_users</span><span class="o">=</span><span class="default_value">False</span></em>, <em><span class="n">cummulative</span><span class="o">=</span><span class="default_value">None</span></em><span class="sig-paren">)</span><a class="reference internal" href="../../_modules/whatstk/analysis/interventions.html#get_interventions_count"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#whatstk.analysis.get_interventions_count" title="Permalink to this definition">¶</a></dt>
 <dd><p>Get number of interventions per user per unit of time.</p>
 <p>The unit of time can be chosen by means of argument <code class="docutils literal notranslate"><span class="pre">date_mode</span></code>.</p>
 <p><strong>Note</strong>: Either <code class="docutils literal notranslate"><span class="pre">df</span></code> or <code class="docutils literal notranslate"><span class="pre">chat</span></code> must be provided.</p>
@@ -345,8 +338,9 @@ Defaults to <code class="docutils literal notranslate"><span class="pre">date_mo
 </ul>
 </li>
 <li><strong>msg_length</strong> (<em>bool</em><em>, </em><em>optional</em>) – Set to True to count the number of characters instead of number of messages sent.</li>
-<li><strong>cummulative</strong> (<em>bool</em><em>, </em><em>optional</em>) – Set to True to obtain commulative counts.</li>
+<li><strong>cumulative</strong> (<em>bool</em><em>, </em><em>optional</em>) – Set to True to obtain commulative counts.</li>
 <li><strong>all_users</strong> (<em>bool</em><em>, </em><em>optional</em>) – Obtain number of interventions of all users combined. Defaults to False.</li>
+<li><strong>cummulative</strong> (<em>bool</em><em>, </em><em>optional</em>) – Deprecated, use cumulative.</li>
 </ul>
 </td>
 </tr>

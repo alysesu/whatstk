@@ -68,7 +68,7 @@
             
             
               <div class="version">
-                v0.3.0
+                v0.3.1
               </div>
             
           
@@ -223,16 +223,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../../../source/changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#unreleased-2020-06-26">Unreleased (2020-06-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#unreleased-2020-07-26">Unreleased (2020-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id1">0.2.0 (2020-04-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id2">0.1.11 (2019-06-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id3">0.1.10 (2019-06-18)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id4">0.1.9 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id5">0.1.8 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id6">0.1.7 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id7">0.1.6 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id8">0.1.1 (2019-06-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../../../source/changelog.html#id9">0.1.0 (2019-06-15)</a></li>
 </ul>
 </li>
 </ul>
@@ -404,8 +397,8 @@
         <span class="p">)</span>
         <span class="k">return</span> <span class="n">fig</span></div>
 
-<div class="viewcode-block" id="FigureBuilder.user_interventions_count_linechart"><a class="viewcode-back" href="../../../source/api/whatstk.graph.html#whatstk.FigureBuilder.user_interventions_count_linechart">[docs]</a>    <span class="k">def</span> <span class="nf">user_interventions_count_linechart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cummulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">all_users</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
-                                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;User interventions count&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Date/Time&quot;</span><span class="p">):</span>
+<div class="viewcode-block" id="FigureBuilder.user_interventions_count_linechart"><a class="viewcode-back" href="../../../source/api/whatstk.graph.html#whatstk.FigureBuilder.user_interventions_count_linechart">[docs]</a>    <span class="k">def</span> <span class="nf">user_interventions_count_linechart</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">all_users</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span>
+                                           <span class="n">title</span><span class="o">=</span><span class="s2">&quot;User interventions count&quot;</span><span class="p">,</span> <span class="n">xlabel</span><span class="o">=</span><span class="s2">&quot;Date/Time&quot;</span><span class="p">,</span> <span class="n">cummulative</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Plot number of user interventions over time.</span>
 
 <span class="sd">        Args:</span>
@@ -419,10 +412,11 @@
 <span class="sd">                                        - ``&#39;hourweekday&#39;``: Grouped by weekday and hour.</span>
 <span class="sd">            msg_length (bool, optional): Set to True to count the number of characters instead of number of messages</span>
 <span class="sd">                                         sent.</span>
-<span class="sd">            cummulative (bool, optional): Set to True to obtain commulative counts.</span>
+<span class="sd">            cumulative (bool, optional): Set to True to obtain commulative counts.</span>
 <span class="sd">            all_users (bool, optional): Obtain number of interventions of all users combined. Defaults to False.</span>
 <span class="sd">            title (str, optional): Title for plot. Defaults to &quot;User interventions count&quot;.</span>
 <span class="sd">            xlabel (str, optional): x-axis label title. Defaults to &quot;Date/Time&quot;.</span>
+<span class="sd">            cummulative (bool, optional): Deprecated, use cumulative.</span>
 
 <span class="sd">        Returns:</span>
 <span class="sd">            plotly.graph_objs.Figure: Plotly Figure.</span>
@@ -439,7 +433,7 @@
 <span class="sd">                &gt;&gt;&gt; from whatstk.graph import plot, FigureBuilder</span>
 <span class="sd">                &gt;&gt;&gt; from whatstk.data import whatsapp_urls</span>
 <span class="sd">                &gt;&gt;&gt; chat = WhatsAppChat.from_source(filepath=whatsapp_urls.LOREM)</span>
-<span class="sd">                &gt;&gt;&gt; fig = FigureBuilder(chat=chat).user_interventions_count_linechart(cummulative=True)</span>
+<span class="sd">                &gt;&gt;&gt; fig = FigureBuilder(chat=chat).user_interventions_count_linechart(cumulative=True)</span>
 <span class="sd">                &gt;&gt;&gt; plot(fig)</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
@@ -447,8 +441,9 @@
             <span class="n">df</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">df</span><span class="p">,</span>
             <span class="n">date_mode</span><span class="o">=</span><span class="n">date_mode</span><span class="p">,</span>
             <span class="n">msg_length</span><span class="o">=</span><span class="n">msg_length</span><span class="p">,</span>
-            <span class="n">cummulative</span><span class="o">=</span><span class="n">cummulative</span><span class="p">,</span>
-            <span class="n">all_users</span><span class="o">=</span><span class="n">all_users</span>
+            <span class="n">cumulative</span><span class="o">=</span><span class="n">cumulative</span><span class="p">,</span>
+            <span class="n">all_users</span><span class="o">=</span><span class="n">all_users</span><span class="p">,</span>
+            <span class="n">cummulative</span><span class="o">=</span><span class="n">cummulative</span>
         <span class="p">)</span>
         <span class="k">if</span> <span class="n">all_users</span><span class="p">:</span>
             <span class="n">fig</span> <span class="o">=</span> <span class="n">fig_scatter_time</span><span class="p">(</span>

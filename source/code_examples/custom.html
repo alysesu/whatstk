@@ -70,7 +70,7 @@
             
             
               <div class="version">
-                v0.3.0
+                v0.3.1
               </div>
             
           
@@ -225,16 +225,9 @@
 </ul>
 </li>
 <li class="toctree-l1"><a class="reference internal" href="../changelog.html">Changelog</a><ul>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased-2020-06-26">Unreleased (2020-06-26)</a></li>
+<li class="toctree-l2"><a class="reference internal" href="../changelog.html#unreleased-2020-07-26">Unreleased (2020-07-26)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#id1">0.2.0 (2020-04-30)</a></li>
 <li class="toctree-l2"><a class="reference internal" href="../changelog.html#id2">0.1.11 (2019-06-19)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id3">0.1.10 (2019-06-18)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id4">0.1.9 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id5">0.1.8 (2019-06-17)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id6">0.1.7 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id7">0.1.6 (2019-06-16)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id8">0.1.1 (2019-06-15)</a></li>
-<li class="toctree-l2"><a class="reference internal" href="../changelog.html#id9">0.1.0 (2019-06-15)</a></li>
 </ul>
 </li>
 </ul>
@@ -323,8 +316,8 @@ and the average number of characters per message in that day, respectively.</p>
 </div>
 <p>Next, we obtain the number of messages and number of characters sent per user per day.</p>
 <div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">whatstk.analysis</span> <span class="kn">import</span> <span class="n">get_interventions_count</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counts_interv</span> <span class="o">=</span> <span class="n">get_interventions_count</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cummulative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">counts_len</span> <span class="o">=</span> <span class="n">get_interventions_count</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cummulative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">counts_interv</span> <span class="o">=</span> <span class="n">get_interventions_count</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">False</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">counts_len</span> <span class="o">=</span> <span class="n">get_interventions_count</span><span class="p">(</span><span class="n">chat</span><span class="o">=</span><span class="n">chat</span><span class="p">,</span> <span class="n">date_mode</span><span class="o">=</span><span class="s1">&#39;date&#39;</span><span class="p">,</span> <span class="n">msg_length</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">cumulative</span><span class="o">=</span><span class="kc">False</span><span class="p">)</span>
 </pre></div>
 </div>
 <p>Time to process a bit the data. We obtain a DataFrame with five columns: <em>username</em>, <em>date</em>, <em>num_characters</em>,
